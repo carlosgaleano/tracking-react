@@ -21,16 +21,16 @@ const GetDespachos = (page) => {
         pag = pag == null ? 1 : pag;
         axios(config(pag))
             .then(function (response) {
-                setDespachos(Object.values(response.data.data));
-                console.log(Object.values(response.data));
-                console.log('datos request', config(pag));
+                setDespachos(response.data);
+               // console.log(Object.values(response.data));
+               // console.log('datos request', config(pag));
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
 
-  
+  return despachos;
 }
 
 export default GetDespachos

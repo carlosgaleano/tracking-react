@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loading = () => {
+export const Loading = () => {
   return (
     <div  >
       <div class="d-flex justify-content-center  mb-3">
@@ -26,5 +26,3 @@ const Loading = () => {
     </div>
   );
 };
-
-export default Loading;

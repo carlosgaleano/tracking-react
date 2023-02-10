@@ -7,7 +7,7 @@ import'./styles.css'
     <>
       
     
-     <DataDespachos page={1}/>
+     <DataDespachos />
     </>
   );
 }

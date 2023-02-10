@@ -1,18 +1,20 @@
-import React from 'react';
+import React,{useState} from 'react';
 import DataTable from "react-data-table-component";
 import Button from 'react-bootstrap/Button';
-import {useEffectDespachos} from '../hooks/useFetchDespachos'
+import {useEffectDespachos} from '../hooks/useFetchDespachos';
+import {Loading} from './Loading';
 
- const DataGridDespachos = ({page},callback)=>{
+ const DataGridDespachos = ()=>{
 
-  
+  const [page, setpage] = useState(1);
+ const [pending, setpending] = useState(true);
 
-    //console.log(page);
-const {data}= useEffectDespachos(page)
-/* useEffectDespachos(page)
-.then(result=>console.log(result));
-const data={}; */
-console.log('datos,',data)
+
+const {data:data,currentPage}= useEffectDespachos(page,setpending);
+
+
+console.log('datos,',data[1]);
+console.log('page actual',currentPage);
 const columns = [
     {
       name: "Orden de Entrega",
@@ -43,10 +45,12 @@ const columns = [
   ];
 
 
-  const onChangePage=()=>{
+  const onChangePage=(currentPage)=>{
 
-    console.log('next page');
-
+   setpending(true);
+   const pagea=(12);
+   
+    setpage(pagea);
   }
 
 
@@ -55,7 +59,7 @@ const columns = [
           <h3>
             {" "}
     
-            <i class="bi bi-truck"></i>Tabla de Usuarios{" "}
+            <i class="bi bi-truck"></i>Despachos {" "}
           </h3>
           <Button
             onClick={onChangePage}
@@ -71,8 +75,8 @@ const columns = [
             title=" Despachos"
             columns={columns}
             data={data}
-           // progressPending={pending}
-            //progressComponent={<Loading />}
+            progressPending={pending}
+            progressComponent={<Loading />}
             pagination
             //paginationComponent={BootyPagination}
             selectableRows

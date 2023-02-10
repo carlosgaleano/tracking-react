@@ -32,7 +32,7 @@ export const getDespachos = async (page) => {
     const  data   =  await response.json();
     console.log('data', data);
     return  new Promise( resolve=>{
-               resolve(Object.values(data)); 
+               resolve(data); 
             }) ;
   
    /*   axios(config())
