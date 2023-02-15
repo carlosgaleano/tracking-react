@@ -14,9 +14,11 @@ export const NavPagination=({data})=>{
        
        // => "class_0 class_1"
     //setpending(true);
+
+    const classDiv=pending? 'displayOff':'displayOn';
     return(
         <>
-            <nav >
+            <nav className="{classDiv}" >
         <ul className="pagination">
           <li className="page-item">
             <button
