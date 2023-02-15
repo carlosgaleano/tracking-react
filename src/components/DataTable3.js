@@ -10,8 +10,13 @@ import {Loading} from './Loading';
  const [pending, setpending] = useState(true);
 
 
-const {data:data,currentPage}= useEffectDespachos(page,setpending);
+const {data:data,currentPage:currentPage}= useEffectDespachos(page,setpending);
 
+const  getRandomIntInclusive=(min, max)=> {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 console.log('datos,',data[1]);
 console.log('page actual',currentPage);
@@ -45,11 +50,14 @@ const columns = [
   ];
 
 
-  const onChangePage=(currentPage)=>{
+  const onChangePage=  (e)=>{
 
+    const current_page=parseInt(e.target.value)
    setpending(true);
-   const pagea=(12);
-   
+    console.log('page final',current_page,'tipo de dato', typeof(current_page) ); 
+   //let pagea=(11+getRandomIntInclusive(2,101));
+
+  const pagea=( current_page+1);
     setpage(pagea);
   }
 
@@ -62,9 +70,9 @@ const columns = [
             <i class="bi bi-truck"></i>Despachos {" "}
           </h3>
           <Button
-            onClick={onChangePage}
+            onClick={onChangePage }
             aria-controls="example-collapse-text"
-            
+            value={currentPage}
           >
             click
           </Button>

@@ -14,7 +14,7 @@ export const useEffectDespachos = (page,setpending) => {
   useEffect(() => {
     getDespachos(page)
     .then((despachos) => {
-      console.log("page", page, "response", despachos);
+      console.log("page", page, "response", despachos, "numero", despachos.current_page);
       setState({
         data: Object.values(despachos.data),
         totalPage:null,
