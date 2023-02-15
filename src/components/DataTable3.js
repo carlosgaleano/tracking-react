@@ -2,7 +2,12 @@ import React,{useState} from 'react';
 import DataTable from "react-data-table-component";
 import Button from 'react-bootstrap/Button';
 import {useEffectDespachos} from '../hooks/useFetchDespachos';
-import {Loading} from './Loading';
+import {Loading} from './Loading.jsx';
+import {ToolBar} from './ToolBar';
+import { NavPagination } from './NavPagination';
+import {SelectRowTable} from  './SelectRowTable'
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
  const DataGridDespachos = ()=>{
 
@@ -10,7 +15,7 @@ import {Loading} from './Loading';
  const [pending, setpending] = useState(true);
 
 
-const {data:data,currentPage:currentPage}= useEffectDespachos(page,setpending);
+const {data:data,currentPage:currentPage,totalrow,totalPage,rowsPerPage}= useEffectDespachos(page,setpending);
 
 const  getRandomIntInclusive=(min, max)=> {
   min = Math.ceil(min);
@@ -56,11 +61,7 @@ const columns = [
    setpending(true);
     console.log('page final',current_page,'tipo de dato', typeof(current_page) ); 
    //let pagea=(11+getRandomIntInclusive(2,101));
-
-  const pagea=( current_page+1);
-    setpage(pagea);
   }
-
 
     return (
         <>
@@ -76,20 +77,31 @@ const columns = [
           >
             click
           </Button>
-          <p>
+          <Button
+            onClick={()=>{setpending(true);setpage(currentPage+10)} }
+            aria-controls="example-collapse-text"
+          
+          >
+            click +10
+          </Button>
+          <p class="d-inline  ml-2" >
             <i class="bi bi-bar-chart text-info" style={{ fontSize: 40 }}></i>
           </p>
+          
           <DataTable
             title=" Despachos"
             columns={columns}
             data={data}
             progressPending={pending}
             progressComponent={<Loading />}
-            pagination
+            //pagination
             //paginationComponent={BootyPagination}
             selectableRows
             //selectableRowsComponent={BootyCheckbox}
           />
+         
+        <NavPagination data={{setpage,totalrow,totalPage,currentPage,setpending, pending}} />
+
         </>
       );
     };

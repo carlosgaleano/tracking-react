@@ -43,4 +43,25 @@ html {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-   
+  .ml-1 {
+    margin-left: 3px !important;
+    --background-color: rgb(225, 234, 235);
+  }
+
+  .findPage{
+    width: 3cm  !important;
+  }
+
+.rowForPAge{
+
+  width: 2cm  !important;
+}
+
+.displayOff{
+
+  display: none !important;
+}
+
+.displayOn{
+  display:block;
+}
