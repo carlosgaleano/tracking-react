@@ -11,17 +11,12 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
  const DataGridDespachos = ()=>{
 
-  const [page, setpage] = useState(1);
+ const [page, setpage] = useState(1);
  const [pending, setpending] = useState(true);
 
 
 const {data:data,currentPage:currentPage,totalrow,totalPage,rowsPerPage}= useEffectDespachos(page,setpending);
 
-const  getRandomIntInclusive=(min, max)=> {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 console.log('datos,',data[1]);
 console.log('page actual',currentPage);
@@ -55,13 +50,7 @@ const columns = [
   ];
 
 
-  const onChangePage=  (e)=>{
 
-    const current_page=parseInt(e.target.value)
-   setpending(true);
-    console.log('page final',current_page,'tipo de dato', typeof(current_page) ); 
-   //let pagea=(11+getRandomIntInclusive(2,101));
-  }
 
     return (
         <>
@@ -70,20 +59,7 @@ const columns = [
     
             <i class="bi bi-truck"></i>Despachos {" "}
           </h3>
-          <Button
-            onClick={onChangePage }
-            aria-controls="example-collapse-text"
-            value={currentPage}
-          >
-            click
-          </Button>
-          <Button
-            onClick={()=>{setpending(true);setpage(currentPage+10)} }
-            aria-controls="example-collapse-text"
           
-          >
-            click +10
-          </Button>
           <p class="d-inline  ml-2" >
             <i class="bi bi-bar-chart text-info" style={{ fontSize: 40 }}></i>
           </p>

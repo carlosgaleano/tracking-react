@@ -7,12 +7,20 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useForm } from '../hooks/useForm';
 export const  ToolBar=({data})=> {
 
-  const {setpage,setpending}=data;
+  const {setpage,setpending,totalPage}=data;
   const { formState, onInputChange, onResetForm, topage } = useForm({
     topage: '',
   
 });
+const changePage=()=>{
 
+  if (topage >=1 &&  topage<=totalPage   ) {
+    setpending(true);setpage(topage);
+  } else {
+    console.log('fuera de rango de paginas');
+  }
+
+}
 console.log('topage:',topage);
   return (
     <>
@@ -39,7 +47,7 @@ console.log('topage:',topage);
             onChange={ onInputChange }
           />
           <Button variant="primary"
-          onClick={()=>{setpending(true);setpage(topage)}}
+          onClick={changePage}
           >ir a pag</Button>{' '}
         </InputGroup>
       </ButtonToolbar>
