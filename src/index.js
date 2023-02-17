@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NoEncontrada from "./components/NoEncontrada";
 import { Blog } from "./routes/Blog";
+import { ExportExcel } from "./routes/ExporExcel";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,6 +20,7 @@ root.render(
        
             <Route path="/" element={<App />} />
             <Route path="blog" element={<Blog />} />
+            <Route path="excel" element={<ExportExcel />} />
          
         </Routes>
     </BrowserRouter>

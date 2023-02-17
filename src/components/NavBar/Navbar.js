@@ -11,8 +11,8 @@ const Navbar = () => {
                 <Link className="btn btn-outline-primary" to="/blog">
                     Despachos
                 </Link>
-                <Link className="btn btn-outline-primary" to="/contacto">
-                    Contacto
+                <Link className="btn btn-outline-primary" to="/excel">
+                    Export Excel
                 </Link>
             </div>
         </nav>
