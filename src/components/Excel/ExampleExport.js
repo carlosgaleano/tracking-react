@@ -1,4 +1,4 @@
-import React, from "react";
+import React from "react";
 import { downloadExcel } from "react-export-table-to-excel";
 
 const Test = () => {
