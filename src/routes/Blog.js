@@ -6,12 +6,9 @@ export const Blog=()=>{
 
 
     return(
-        <>
-         <Navbar />
-        <div>Blog</div>
 
         <DataDespachos />
-        </>
+ 
     )
 
 }

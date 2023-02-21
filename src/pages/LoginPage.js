@@ -7,15 +7,18 @@ import {useAuthStore} from '../store/auth.ts'
 
 const LoginPage= ()=>{
 
-    const setToken=useAuthStore(state=>state.setToken)
+    const setToken=useAuthStore(state=>state.setToken);
+    const setProfile=useAuthStore(state=>state.setProfile);
 
     const handleSubmit= async()=>{
         console.log(email);
-      const {data:data}= await  LoginRequest(email, password);
-      console.log(data.access_token);
-      setToken(data.access_token)
-      const resProfile=await ProfileRequest();
-      console.log(resProfile);
+      const {data:{access_token}}= await  LoginRequest(email, password);
+      console.log(access_token);
+      setToken(access_token)
+      const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
+      console.log('data profiles',dataProfile);
+      setProfile(dataProfile);
+
     }
 
     const { formState, onInputChange, onResetForm, email, password } = useForm({

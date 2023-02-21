@@ -8,7 +8,7 @@ export const ExportExcel =()=>{
 
     return(
     <>
-    <Navbar />
+    
     <h1>Exportar Datos a Excel </h1>
       <JsonToExcel />  
     </>
