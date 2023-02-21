@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '../hooks/useForm';
-import {LoginRequest} from '../helpers/UseAuth';
+import {LoginRequest,ProfileRequest} from '../helpers/UseAuth';
 import {useAuthStore} from '../store/auth.ts'
 
 const LoginPage= ()=>{
@@ -13,13 +13,14 @@ const LoginPage= ()=>{
         console.log(email);
       const {data:data}= await  LoginRequest(email, password);
       console.log(data.access_token);
-      setToken(data.token_type+' '+data.access_token)
-      //const resProfile=await profileRequest();
+      setToken(data.access_token)
+      const resProfile=await ProfileRequest();
+      console.log(resProfile);
     }
 
     const { formState, onInputChange, onResetForm, email, password } = useForm({
-        email: '',
-        password:''
+        email: 'admin@jsonapi.com',
+        password:'secret'
       
     });
 
