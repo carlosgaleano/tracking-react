@@ -14,6 +14,9 @@ const Navbar = () => {
                 <Link className="btn btn-outline-primary" to="/excel">
                     Export Excel
                 </Link>
+                <Link className="btn btn-outline-primary" to="/profile">
+                    Datos del perfil
+                </Link>
             </div>
         </nav>
     );
