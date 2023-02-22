@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '../hooks/useForm';
+import { useNavigate } from "react-router-dom";
 import {LoginRequest,ProfileRequest} from '../helpers/UseAuth';
 import {useAuthStore} from '../store/auth.ts'
 
@@ -9,7 +10,7 @@ const LoginPage= ()=>{
 
     const setToken=useAuthStore(state=>state.setToken);
     const setProfile=useAuthStore(state=>state.setProfile);
-
+     const navegate=useNavigate();
     const handleSubmit= async()=>{
         console.log(email);
       const {data:{access_token}}= await  LoginRequest(email, password);
@@ -18,7 +19,7 @@ const LoginPage= ()=>{
       const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
       console.log('data profiles',dataProfile);
       setProfile(dataProfile);
-
+      navegate('/blog')
     }
 
     const { formState, onInputChange, onResetForm, email, password } = useForm({
@@ -28,8 +29,9 @@ const LoginPage= ()=>{
     });
 
  return(
-
-    <Form>
+     <>
+     
+     <Form className='center mt-5' >
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>Email address</Form.Label>
       <Form.Control type="email" placeholder="Enter email"  name="email" value={email}  onChange={ onInputChange }   />
@@ -47,6 +49,8 @@ const LoginPage= ()=>{
       Login
     </Button>
   </Form>
+     </>
+    
 
  )
 

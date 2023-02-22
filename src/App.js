@@ -8,11 +8,15 @@ import {ProfilePage} from './pages/ProlifePage'
 import { Blog } from "./routes/Blog";
 import { ExportExcel } from "./routes/ExporExcel";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-//import Login from "./components/login/login";
 import'./styles.css'
-import { ProtecteRoute } from "./components/login/ProtectedRoute";
- function App() {
+import { ProtecteRoute } from "./components/login/ProtectedRoute.tsx";
+import {useAuthStore} from './store/auth.ts';
+
+
+
+function App() {
+
+  const isAuth=useAuthStore(state=>state.isAuth);
   return ( 
     <BrowserRouter>
     <Navbar />
@@ -22,18 +26,22 @@ import { ProtecteRoute } from "./components/login/ProtectedRoute";
             <Route path="blog" element={<Blog />} />
             <Route path="excel" element={<ExportExcel />} />
 
-            <Route element={<ProtecteRoute isAllowed={true} />} >
-              <Route path="/profile" element={
-                  <ProfilePage />
-              }/>
-            
+          {/*   <Route path="profile" element={
+               <ProtecteRoute isAllowed={isAuth}>
+               <ProfilePage />
+               </ProtecteRoute> 
+           }/> */}
+
+            <Route  element={ <ProtecteRoute isAllowed={isAuth} />}  >
+            <Route path="profile" element={
+              
+               <ProfilePage />
+              
+
+            }/>
             </Route>
          
-         {/*    <Route path="/profile" element={
-               <ProtecteRoute isAllowed={true}>
-                <ProfilePage />
-               </ProtecteRoute> 
-            }/> */}
+     
         </Routes>
         
 
