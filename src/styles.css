@@ -72,6 +72,13 @@ html {
   background-color: rgb(219, 206, 196) ;
   padding: 10px;
 }
+
+.right2 {
+  float: right;
+  width: 130px;
+ 
+  padding: 10px;
+}
 .formLogin{
 
   width: 10vw;

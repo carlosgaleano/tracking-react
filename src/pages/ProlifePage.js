@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { useAuthStore } from "../store/auth.ts";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import {TextMui} from "../components/Mui/button.js";
 import Form from "react-bootstrap/Form";
+import {LogOut2} from '../components/Mui/LogOut';
 
 export const ProfilePage = () => {
   const logOut = useAuthStore((state) => state.logOut);
@@ -11,7 +13,9 @@ export const ProfilePage = () => {
   return (
     <>
       <h1 className="d-inline">Datos del perfil</h1>
-      <button
+      <TextMui />
+   
+   {/*    <button
         className="d-inline btn btn-secondary right"
         onClick={() => {
           navigate("/");
@@ -19,7 +23,7 @@ export const ProfilePage = () => {
         }}
       >
         Logout
-      </button>
+      </button> */}
       <Form className="center ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

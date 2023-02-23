@@ -12,7 +12,7 @@ import'./styles.css'
 import { ProtecteRoute } from "./components/login/ProtectedRoute.tsx";
 import {useAuthStore} from './store/auth.ts';
 
-
+import {LogOut2} from './components/Mui/LogOut';
 
 function App() {
 
@@ -20,10 +20,11 @@ function App() {
   return ( 
     <BrowserRouter>
     <Navbar />
+    <LogOut2 />
         <Routes>
        
             <Route path="/" element={<LoginPage />} />
-            <Route path="blog" element={<Blog />} />
+          
             <Route path="excel" element={<ExportExcel />} />
 
           {/*   <Route path="profile" element={
@@ -33,12 +34,8 @@ function App() {
            }/> */}
 
             <Route  element={ <ProtecteRoute isAllowed={isAuth} />}  >
-            <Route path="profile" element={
-              
-               <ProfilePage />
-              
-
-            }/>
+            <Route path="profile" element={<ProfilePage />}/>
+              <Route path="blog" element={<Blog />} />
             </Route>
          
      
