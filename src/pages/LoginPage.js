@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import backgroundImage from '../img/Gemini_Generated_Image_10gyec10gyec10gy.jpeg';
+
+//import Button from 'react-bootstrap/Button';
+import { Form, Button, Container} from 'react-bootstrap';
+
 import { useForm } from '../hooks/useForm';
 import { useNavigate } from "react-router-dom";
 import {LoginRequest,ProfileRequest} from '../helpers/UseAuth';
@@ -29,7 +32,16 @@ const LoginPage= ()=>{
     });
 
  return(
-     <>
+<Container
+  fluid
+  className="bg-gray-200 min-vh-100 d-flex align-items-center justify-content-center"
+  style={{
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    opacity: 0.8,
+  }}
+>
      
      <Form className='center mt-5' >
     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -49,7 +61,7 @@ const LoginPage= ()=>{
       Login
     </Button>
   </Form>
-     </>
+     </Container>
     
 
  )

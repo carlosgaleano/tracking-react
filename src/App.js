@@ -3,7 +3,7 @@ import React from "react";
 
 //import { Outlet } from "react-router";
 import Navbar from "./components/NavBar/Navbar";
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage3';
 import {ProfilePage} from './pages/ProlifePage'
 import { Blog } from "./routes/Blog";
 import { ExportExcel } from "./routes/ExporExcel";
@@ -19,8 +19,7 @@ function App() {
   const isAuth=useAuthStore(state=>state.isAuth);
   return ( 
     <BrowserRouter>
-    <Navbar />
-    <LogOut2 />
+  
         <Routes>
        
             <Route path="/" element={<LoginPage />} />
