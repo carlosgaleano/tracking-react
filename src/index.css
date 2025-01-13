@@ -1,3 +1,9 @@
+/**
+ * @Author: Carlos Galeano
+ * @Date:   2023-01-19 08:45:56
+ * @Last Modified by:   Carlos Galeano
+ * @Last Modified time: 2025-01-13 14:59:12
+ */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,7 +18,7 @@ code {
     monospace;
 }
 .transparent-card-body {
-  background-color: transparent !important; /* Fondo blanco semi-transparente */
+  background-color: rgb(229, 238, 240) !important; /* Fondo blanco semi-transparente */
   border-radius: 0.5px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */

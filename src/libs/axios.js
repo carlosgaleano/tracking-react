@@ -2,7 +2,8 @@ import axios from 'axios'
 import { useAuthStore } from '../store/auth.ts';
 
 const authApi= axios.create({
-    baseURL: "http://localhost/api/v2",
+   // baseURL: "http://localhost/api/v2",
+    baseURL: "https://apitsa.logytechchile.cl/api",
     withCredentials:true
 })
 

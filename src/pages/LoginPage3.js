@@ -21,15 +21,15 @@ const LoginPage= ()=>{
       const {data:{access_token}}= await  LoginRequest(email, password);
       console.log(access_token);
       setToken(access_token)
-      const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
+     /* const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
       console.log('data profiles',dataProfile);
-      setProfile(dataProfile);
+      setProfile(dataProfile);*/
       navegate('/blog')
     }
 
     const { formState, onInputChange, onResetForm, email, password } = useForm({
-        email: 'admin@jsonapi.com',
-        password:'secret'
+     email: 'cags20031@gmail.com',
+        password:'api2024'
       
     });
 
@@ -96,7 +96,7 @@ const LoginPage= ()=>{
                 defaultChecked
               />
             </Form.Group>
-            <Button type="submit" variant="dark" className="w-100 color-white" onClick={handleSubmit}>Ingresar</Button>
+            <Button  variant="dark" className="w-100 color-white" onClick={handleSubmit}>Ingresar</Button>
             <p className="mt-3 text-center">
               Don't have an account? <a href="/signup" className="text-primary">Sign Up</a>
             </p>

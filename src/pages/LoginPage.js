@@ -13,21 +13,24 @@ const LoginPage= ()=>{
 
     const setToken=useAuthStore(state=>state.setToken);
     const setProfile=useAuthStore(state=>state.setProfile);
-     const navegate=useNavigate();
+    const navegate=useNavigate();
     const handleSubmit= async()=>{
         console.log(email);
       const {data:{access_token}}= await  LoginRequest(email, password);
       console.log(access_token);
       setToken(access_token)
-      const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
+      /*const {data:{data:{attributes:dataProfile}}}=await ProfileRequest();
       console.log('data profiles',dataProfile);
-      setProfile(dataProfile);
+      setProfile(dataProfile);*/
       navegate('/blog')
     }
 
     const { formState, onInputChange, onResetForm, email, password } = useForm({
-        email: 'admin@jsonapi.com',
-        password:'secret'
+       /* email: 'admin@jsonapi.com',
+        password:'secret'*/
+
+        email: 'cags20031@gmail.com',
+        password:'api2024'
       
     });
 
