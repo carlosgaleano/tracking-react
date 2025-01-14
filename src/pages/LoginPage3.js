@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import backgroundImage from '../img/Gemini_Generated_Image_10gyec10gyec10gy.jpeg';
-import backgroundImage2 from '../img/fondo_1.jpeg';
-import NavbarLogin   from '../components/login/navlogin.js';
+import backgroundImage2 from '../img/fondo_2.jpeg';
 
 //import Button from 'react-bootstrap/Button';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
@@ -35,10 +34,10 @@ const LoginPage= ()=>{
 
  return(
   <>
-   <NavbarLogin/>
+   
 <Container
   fluid
-  className="bg-gray-200 min-vh-100 d-flex align-items-center justify-content-center"
+  className="bg-gray-200 min-vh-75 d-flex align-items-center justify-content-center "
   style={{
     backgroundImage: `url(${backgroundImage2})`,
     backgroundSize: 'cover',
@@ -48,8 +47,8 @@ const LoginPage= ()=>{
 >
 
   <Row className="w-100">
-    <Col xs={12} md={8} lg={4} className="mx-auto transparent-card-body">
-      <Card className="z-index-0 fadeIn3 fadeInBottom transparent-card-body cardAcceso"  > 
+    <Col xs={12} md={8} lg={4} className="mx-auto transparent-card-body ">
+      <Card className="z-index-0 fadeIn3 fadeInBottom transparent-card-body cardAcceso border-white-shadow"  > 
         <Card.Header className="p-0 position-relative bg-gradient-dark border-radius-lg">
           <div className="py-3 text-center">
             <h4 className="text-white font-weight-bolder color-white ">Acceso al Sistema</h4>

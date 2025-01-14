@@ -1,8 +1,8 @@
 /**
  * @Author: Carlos Galeano
  * @Date:   2023-01-19 08:45:56
- * @Last Modified by:   Carlos Galeano
- * @Last Modified time: 2025-01-13 15:08:44
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2025-01-14 18:08:01
  */
 body {
   margin: 0;
@@ -26,6 +26,26 @@ code {
 
 .transparent-card-body * {
   background-color: transparent; /* Asegura que los hijos no tengan fondo */
+}
+
+/* Estilos para el borde blanco con sombra */
+.border-white-shadow {
+  border: 2px solid white; /* Borde blanco */
+  box-shadow:
+      0px 0px 0.4px #0d1414,
+      -0.4px -0.4px 0.4px #0d1414,
+      0.4px -0.4px 0.4px #0d1414,
+      -0.4px 0.4px 0.4px #0d1414,
+      0.4px 0.4px 0.4px #0d1414;
+}
+
+/* Estilos combinados para la card */
+.transparent-card-body.border-white-shadow {
+  /* Puedes ajustar el padding si es necesario para que la sombra no se corte */
+  padding: 1.6rem; /* Ejemplo: aumenta un poco el padding */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
+  backdrop-filter: blur(5px) saturate(1.2);
 }
 
 .color-white {
@@ -55,4 +75,93 @@ code {
 
 .inputColor {
   background-color: #c8c9f7 !important;
+}
+
+.sidebar {
+  position: fixed; /* Para que se mantenga en su lugar al deslizar */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px; /* Ancho del menú */
+  background-color: white; /* Color de fondo del menú */
+  transform: translateX(-100%); /* Inicialmente oculto a la izquierda */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+  z-index: 1050; /* Para que esté por encima del contenido principal */
+  padding-top: 5rem; /* Ajuste para el contenido principal */
+  overflow-y: auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 67px;
+  left: 0;
+  height: 50%;
+  width: 250px;
+  background-color: white;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1050;
+  padding-top: 5rem;
+  overflow-y: auto;
+  margin-top: 0; /* Elimina el margen superior */
+  padding-top: 0; /* Elimina el padding superior */
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
+
+.sidebar.hide {
+  transform: translateX(-100%);
+}
+
+.nav2 {
+ 
+  height: 60px !important;
+}
+
+.exit {
+ 
+    color: red;
+ 
+    bottom: 1rem; /* Usamos bottom en lugar de top */
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 18.7vw;
+    text-align: left !important; 
+    
+  
+
+}
+
+.exit:hover {
+  color: darkred;
+  
+}
+
+.desplazar{
+  color: rgb(20, 31, 128);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+
+}
+
+.contenedor {
+
+
+  min-height: 75vh ;
+}
+.footer {
+
+  position: absolute;
+  width: 95%; /* Opcional */
+  margin: 0 auto; /* Centra horizontalmente */
+  background-color: #f1f1f1;
+  color: rgb(29, 3, 3);
+  text-align: center;
+  padding: 10px;
 }
