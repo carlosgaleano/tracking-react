@@ -1,27 +1,29 @@
-# Using node:16-alpine base image
-FROM node:alpine 
+# Etapa 1: Construcción de la aplicación
+FROM node:20 AS build
 
-# Set /app as the default work directory
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# copy package.json to the working directory for packages installation
-#COPY package.json /app
+# Copia los archivos necesarios para instalar dependencias
+COPY package.json package-lock.json ./
 
-COPY package*.json .
-#COPY packege-lock.json . 
-RUN npm  install 
+# Instala las dependencias
+RUN npm install
 
-# Install npm dependencies
-#RUN yarn install -y
-
-# Copy all the project files to the working directory
+# Copia el resto de los archivos del proyecto al contenedor
 COPY . .
 
+# Construye la aplicación para producción
 RUN npm run build
 
-# Expose the port of your application to bind with the host port
-EXPOSE 3000
+# Etapa 2: Servir la aplicación con Nginx
+FROM nginx:alpine
 
-# run your app
-#CMD ['yarn', 'run', 'start']
-CMD ['npm', 'start' ]
+# Copia los archivos estáticos construidos en la etapa anterior al directorio predeterminado de Nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Exponer el puerto 80 para el tráfico HTTP
+EXPOSE 80
+
+# Comando para iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
