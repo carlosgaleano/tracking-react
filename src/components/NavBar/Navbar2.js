@@ -67,6 +67,8 @@ const Navbar2 = () => {
         setShowMenu(!showMenu);
     };
 
+    const tooltipText = showMenu ? "Cerrar menú" : "Abrir menú";
+
     return (
         <Container fluid className="mt-4 min-vh-75 contenedor">
             <Row>
@@ -78,7 +80,7 @@ const Navbar2 = () => {
                 <Col md={showMenu ? 0 : 1}></Col>
 
                 <Col xs={12} md={showMenu ? 3 : 0} className={`sidebar ${showMenu ? 'show' : 'hide'} d-md-block d-none`}>
-                    <Sidebar activeMenuItem={activeMenuItem} handleMenuItemClick={handleMenuItemClick} toggleMenu={toggleMenu} setShowMenu={setShowMenu}   showMenu={showMenu}  />
+                    <Sidebar activeMenuItem={activeMenuItem} handleMenuItemClick={handleMenuItemClick} toggleMenu={toggleMenu} setShowMenu={setShowMenu}   showMenu={showMenu} tooltipText={tooltipText} />
                 </Col>
 
                 {/* Usamos el componente MainContent y le pasamos activeMenuItem como prop */}

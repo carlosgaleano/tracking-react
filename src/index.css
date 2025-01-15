@@ -2,7 +2,7 @@
  * @Author: Carlos Galeano
  * @Date:   2023-01-19 08:45:56
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2025-01-14 18:08:01
+ * @Last Modified time: 2025-01-15 16:22:52
  */
 body {
   margin: 0;
@@ -95,9 +95,9 @@ code {
   position: fixed;
   top: 67px;
   left: 0;
-  height: 50%;
+  height: 75%;
   width: 250px;
-  background-color: white;
+  background-color: rgb(233, 229, 229);
   transition: transform 0.3s ease-in-out;
   z-index: 1050;
   padding-top: 5rem;
@@ -112,6 +112,11 @@ code {
 
 .sidebar.hide {
   transform: translateX(-100%);
+}
+
+.menuItem:hover{
+  background-color: rgb(42, 97, 107) !important;
+  color: white !important;  
 }
 
 .nav2 {
@@ -165,3 +170,4 @@ code {
   text-align: center;
   padding: 10px;
 }
+
