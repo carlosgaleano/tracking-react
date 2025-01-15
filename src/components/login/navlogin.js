@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import imglog from '../../img/logo_logy.jpg';
+import imglog from '../../img/logo_logytech2.png';
 
 
 function NavbarLogin() {
@@ -18,7 +18,7 @@ function NavbarLogin() {
                 <img 
                     src={imglog} 
                     alt="logo" 
-                    style={{ width: '100px', height: '50px' }} 
+                    style={{ width: '100px', height: '50px', backgroundColor: 'white' }} 
                     onClick={() => menu(1)} // Agrega la lógica para la función 'menu'
                 />
             </>

@@ -16,7 +16,7 @@ const Sidebar = ({ activeMenuItem, handleMenuItemClick,toggleMenu,setShowMenu, s
             <Card.Body>
                 <Card.Title className='color-white'>Menu     <RiPictureInPictureExitLine className='desplazar' onClick={toggleMenu} aria-label={showMenu ? 'Cerrar menú' : 'Abrir menú'}   /></Card.Title>
                 <ListGroup variant="flush">
-                    <ListGroup.Item
+                    <ListGroup.Item className='menuItem'
                         active={activeMenuItem === 'Despachos'}
                         onClick={() => handleMenuItemClick('Despachos')}
                         action

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import backgroundImage from '../img/Gemini_Generated_Image_10gyec10gyec10gy.jpeg';
-import backgroundImage2 from '../img/fondo_2.jpeg';
+import backgroundImage2 from '../img/fondo_3.1.jpeg';
 
 //import Button from 'react-bootstrap/Button';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
@@ -42,7 +42,7 @@ const LoginPage= ()=>{
     backgroundImage: `url(${backgroundImage2})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    opacity: 0.8,
+    opacity: 0.9,
   }}
 >
 
@@ -91,14 +91,12 @@ const LoginPage= ()=>{
             <Form.Group className="mb-3 text-white">
               <Form.Check
                 type="checkbox"
-                label="Remember me"
+                label="Recordar credenciales"
                 defaultChecked
               />
             </Form.Group>
             <Button  variant="dark" className="w-100 color-white" onClick={handleSubmit}>Ingresar</Button>
-            <p className="mt-3 text-center">
-              Don't have an account? <a href="/signup" className="text-primary">Sign Up</a>
-            </p>
+         
           </Form>
         </Card.Body>
       </Card>
