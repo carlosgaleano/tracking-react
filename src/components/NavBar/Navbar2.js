@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import DataDespachos from "../DataTable3";
+import DataDespachos from "../Despachos/DataTable3";
+import DashboardDespachos from '../dashboard/dashboard-despachos';
 import Sidebar from './Sidebar';
 import { FaDatabase, FaUsers, FaEnvelope, FaCheckSquare } from 'react-icons/fa';
 
@@ -10,46 +11,18 @@ const MainContent = ({ activeMenuItem }) => {
     switch (activeMenuItem) {
         case 'Despachos':
             return <DataDespachos />;
+        case 'Indicadores':
+                return <DashboardDespachos />;    
         case 'User Profile':
             return <p>Contenido del Perfil de Usuario</p>;
         case 'Table List':
             return <p>Contenido de la Lista de Tablas</p>;
         default:
             return (
-                <Row className=''>
-                    <Col md={3}>
-                        <Card bg="warning" text="white" className="mb-3">
-                            <Card.Body>
-                                <Card.Title><FaDatabase /> 49/50 GB</Card.Title>
-                                <Card.Text>Used Space</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card bg="success" text="white" className="mb-3">
-                            <Card.Body>
-                                <Card.Title><FaUsers /> $34,245</Card.Title>
-                                <Card.Text>Revenue</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card bg="danger" text="white" className="mb-3">
-                            <Card.Body>
-                                <Card.Title><FaEnvelope /> 75</Card.Title>
-                                <Card.Text>Email Subscriptions</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card bg="info" text="white" className="mb-3">
-                            <Card.Body>
-                                <Card.Title><FaCheckSquare /> +245</Card.Title>
-                                <Card.Text>Completed Tasks</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                <> 
+                    <DashboardDespachos />
+                </>
+               
             );
     }
 };
@@ -70,7 +43,7 @@ const Navbar2 = () => {
     const tooltipText = showMenu ? "Cerrar menú" : "Abrir menú";
 
     return (
-        <Container fluid className="mt-4 min-vh-75 contenedor">
+        <Container fluid className="mt-4  contenedor">
             <Row>
                 <Col xs="auto" className="mb-3">
                     <button className="btn btn-primary" onClick={toggleMenu} aria-label={showMenu ? 'Cerrar menú' : 'Abrir menú'}>

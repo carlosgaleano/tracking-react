@@ -13,6 +13,9 @@ import { SlArrowLeftCircle } from "react-icons/sl";
 import { RiPictureInPictureExitLine } from "react-icons/ri";
 import { LogOut2 } from "../Mui/LogOut";
 import { ClassNames } from "@emotion/react";
+import { FiTruck } from "react-icons/fi";
+import { FaRegChartBar } from "react-icons/fa";
+
 
 const Sidebar = ({
   activeMenuItem,
@@ -55,11 +58,11 @@ const Sidebar = ({
         <ListGroup variant="flush">
           <ListGroup.Item
             className="menuItem"
-            active={activeMenuItem === "Despachos"}
-            onClick={() => handleMenuItemClick("Despachos")}
+            active={activeMenuItem === "Indicadores"}
+            onClick={() => handleMenuItemClick("Indicadores")}
             action
           >
-            Despachos
+            Indicadores {"  "} <FaRegChartBar />
           </ListGroup.Item>
 
           <ListGroup.Item
@@ -68,31 +71,17 @@ const Sidebar = ({
             onClick={() => handleMenuItemClick("Despachos")}
             action
           >
-            Despachos
+            Despachos {"  "} <FiTruck />
           </ListGroup.Item>
           
           {/* ... otros items del menu */}
         </ListGroup>
       </Card.Body>
-      <div className="mt-auto"> {/* Contenedor para el botón de cerrar sesión */}
-          <OverlayTrigger
-            placement="left"
-            overlay={(props) => renderTooltip("Cerrar sistema", props)}
-            offset={[10, 0]} // Ajusta el offset si es necesario
-          >
-           <Button
-              variant="link"
-              style={{
-                padding: 0,
-                border: "none",
-                cursor: "pointer",
-                margin: 0,
-              }}
-              onClick={toggleMenu}
-            >
+      <div className="ml-5"> {/* Contenedor para el botón de cerrar sesión */}
+         
+             
               <LogOut2 />
-            </Button>
-          </OverlayTrigger>
+        
         </div>
     </Card>
   );

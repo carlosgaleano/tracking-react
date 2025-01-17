@@ -37,7 +37,7 @@ const LoginPage= ()=>{
    
 <Container
   fluid
-  className="bg-gray-200 min-vh-75 d-flex align-items-center justify-content-center "
+  className="bg-gray-200 min-vh-75 d-flex align-items-center justify-content-center contenedor-login "
   style={{
     backgroundImage: `url(${backgroundImage2})`,
     backgroundSize: 'cover',

@@ -2,11 +2,11 @@
  * @Author: Carlos Galeano
  * @Date:   2023-01-19 08:45:56
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2025-01-15 16:22:52
+ * @Last Modified time: 2025-01-17 14:56:43
  */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'roboto',  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -81,7 +81,7 @@ code {
   position: fixed; /* Para que se mantenga en su lugar al deslizar */
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 70% !important;
   width: 250px; /* Ancho del menú */
   background-color: white; /* Color de fondo del menú */
   transform: translateX(-100%); /* Inicialmente oculto a la izquierda */
@@ -128,16 +128,21 @@ code {
  
     color: red;
  
-    bottom: 1rem; /* Usamos bottom en lugar de top */
-    right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-left: 18.7vw;
-    text-align: left !important; 
-    
+ 
   
 
+}
+
+.botton-exit {
+  
+ position: relative;
+  top: 1rem;
+  margin-top: -3.3rem;
+  margin-left: 15.8dvw ;
+  width: 7vw;
+
+
+  text-align: left !important; 
 }
 
 .exit:hover {
@@ -158,7 +163,7 @@ code {
 .contenedor {
 
 
-  min-height: 75vh ;
+  min-height: 83vh !important ;
 }
 .footer {
 
@@ -171,3 +176,7 @@ code {
   padding: 10px;
 }
 
+.contenedor-login{
+  min-height: 83vh
+
+}
