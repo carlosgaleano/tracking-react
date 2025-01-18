@@ -5,6 +5,9 @@ import DataDespachos from "../Despachos/DataTable3";
 import DashboardDespachos from '../dashboard/dashboard-despachos';
 import Sidebar from './Sidebar';
 import { FaDatabase, FaUsers, FaEnvelope, FaCheckSquare } from 'react-icons/fa';
+import Tooltip from "react-bootstrap/Popover";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
 
 // Componente hijo para el contenido principal
 const MainContent = ({ activeMenuItem }) => {
@@ -46,9 +49,15 @@ const Navbar2 = () => {
         <Container fluid className="mt-4  contenedor">
             <Row>
                 <Col xs="auto" className="mb-3">
+                <OverlayTrigger
+          offset={[0, 0]}
+          className="bg-dark text-white w-25"
+          overlay={<Tooltip  className="bg-dark text-white mb-2" id="tooltip-disabled">{tooltipText}!</Tooltip>}
+        >
                     <button className="btn btn-primary" onClick={toggleMenu} aria-label={showMenu ? 'Cerrar menú' : 'Abrir menú'}>
-                        {showMenu ? <FaTimes /> : <FaBars />}
+                       {showMenu ? <FaTimes /> : <FaBars />}
                     </button>
+                    </OverlayTrigger>
                 </Col>
                 <Col md={showMenu ? 0 : 1}></Col>
 
