@@ -2,7 +2,7 @@
 //import { useAuthStore } from '../store/auth.ts';
 import axios from '../libs/axios.js';
 
-export const LoginRequest=  async(email:String, password:string)=>{
+export const LoginRequest=  async(email, password)=>{
 
     const config = {
         method: 'post',

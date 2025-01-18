@@ -71,8 +71,17 @@ const columns = [
 
 
 
-      <DespachosDetalle   show={modalShow} onHide={() => setModalShow(false)} row={selectedRow}  />
-
+  {/* Renderizado condicional del modal */}
+  {modalShow && ( // Solo se renderiza si modalShow es true
+                <DespachosDetalle
+                    show={modalShow}
+                    onHide={() => {
+                        setModalShow(false);
+                        setSelectedRow(null); // Limpiar la fila seleccionada al cerrar el modal
+                    }}
+                    row={selectedRow}
+                />
+            )}
           
           
           <p class="d-inline  ml-2" >

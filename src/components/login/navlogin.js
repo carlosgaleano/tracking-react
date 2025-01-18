@@ -11,6 +11,12 @@ function NavbarLogin() {
         // Puedes redirigir a otra página o mostrar un modal, etc.
     };
 
+    const menu = (option) => {
+        // Agrega la lógica que deseas ejecutar al hacer clic en el logo
+        console.log("Menu clicked");
+        // Puedes redirigir a otra página o mostrar un modal, etc.
+    };
+
     return (
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark h-50 nav2">
             {/* Brand */}
