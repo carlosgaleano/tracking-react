@@ -5,6 +5,12 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
+import {Loading} from '../Loading.jsx';
+import moment from 'moment';
+import DataTable from "react-data-table-component";
+import { NavPagination } from '../NavPagination';
+import {SelectRowTable} from  '../SelectRowTable'
+
 
 const DespachosDetalle = (props) => {
   const [page, setpage] = useState(1);
@@ -14,8 +20,33 @@ const DespachosDetalle = (props) => {
     setDespachoID(props.row?.Despacho_ID); // Actualizar Despacho_ID cuando props.row cambie
 }, [props.row]); // Dependencia crucial: props.row
 console.log("Despacho_ID", despachoid);
-const { data: data } = useEffectGetDespachoDetalle(page, setpending, despachoid);
+const { data:data,currentPage:currentPage,totalrow,totalPage,rowsPerPage } = useEffectGetDespachoDetalle(page, setpending, despachoid);
 
+const fechaFormat = (fecha) => {
+ return moment(fecha).format('DD-MM-YYYY HH:mm');
+
+};
+
+const columns = [
+ {
+    name: "Estado",
+    selector: (row) => row?.nombre_estado_tracking,
+  },
+  {
+    name: "Fecha despacho",
+    selector: (row) => fechaFormat(row?.DT_Status) ,
+    format: "datetime",
+    sortable: true,
+  },
+  
+  {
+    name: "Observación",
+    selector: (row) => {
+      return row?.estado_observacion ? row?.estado_observacion : row?.comentario_despacho || '-';
+  }
+
+  },
+];
 
 
 
@@ -29,26 +60,18 @@ const { data: data } = useEffectGetDespachoDetalle(page, setpending, despachoid)
       </Modal.Header>
       <Modal.Body className="grid-example">
         <Container>
-          <Row>
-            <Col xs={12} md={8}>
-              .col-xs-12 .col-md-8
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-          </Row>
-
-          <Row>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-          </Row>
+        <DataTable
+            title=" Despachos"
+            columns={columns}
+            data={data}
+            progressPending={pending}
+            progressComponent={<Loading />}
+            //pagination
+            //paginationComponent={BootyPagination}
+            selectableRows
+           // Use onRowClicked prop
+            //selectableRowsComponent={BootyCheckbox}
+          />
         </Container>
       </Modal.Body>
       <Modal.Footer>
