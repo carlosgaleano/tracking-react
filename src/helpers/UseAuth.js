@@ -27,7 +27,17 @@ export const LoginRequest=  async(email, password)=>{
    // console.log(config);
 //return  axios(config);
 //return await axios.post('http://localhost/api/v1/login',{email,password});
-return await axios.post('/login',{email,password});
+try {
+
+  return await axios.post('/login',{email,password});
+} catch (error) {
+    console.log('error',error);
+
+    return null;
+}
+
+
+
 }
 
 export const ProfileRequest= async ()=>{

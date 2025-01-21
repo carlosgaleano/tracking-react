@@ -8,6 +8,8 @@ import { NavPagination } from '../NavPagination';
 import {SelectRowTable} from  '../SelectRowTable'
 import InputGroup from 'react-bootstrap/InputGroup';
 import DespachosDetalle from './DespachoDetalle';
+import { TbListDetails } from "react-icons/tb";
+
 
 
 
@@ -61,6 +63,14 @@ const columns = [
       name: "Estado",
       selector: (row) => row.estado_out,
     },
+    {
+      name: 'Detalle',
+      button: true,
+      cell: (row) => <Button onClick={() => {
+        showData(row); 
+        
+      }}><TbListDetails /></Button>,
+    },
   ];
 
 
@@ -97,10 +107,10 @@ const columns = [
             //pagination
             //paginationComponent={BootyPagination}
             selectableRows
-            onRowClicked={(row) => {
+           /* onRowClicked={(row) => {
               showData(row); 
               
-            }} // Use onRowClicked prop
+            }} */// Use onRowClicked prop
             //selectableRowsComponent={BootyCheckbox}
           />
          

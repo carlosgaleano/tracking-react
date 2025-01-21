@@ -12,6 +12,7 @@ import { NavPagination } from '../NavPagination';
 import {SelectRowTable} from  '../SelectRowTable'
 
 
+
 const DespachosDetalle = (props) => {
   const [page, setpage] = useState(1);
   const [pending, setpending] = useState(true);
